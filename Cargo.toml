@@ -1,0 +1,20 @@
+[package]
+name = "cheapalloc"
+version = "0.1.0"
+authors = ["Andrew Pullin <ap@andrewpullin.org>"]
+description = "Provides a GlobalAlloc hooked up to libc malloc/free, to use an existing CRT heap"
+license = "Apache-2.0/MIT"
+repository = "https://github.com/apullin/cheapalloc"
+readme = "README.md"
+keywords = ["no_std", "embedded", "ffi", "alloc"]
+categories = ["no-std"]
+edition = "2018"
+
+[features]
+default = []
+provide_oom = ["panic-halt", "cortex-m"]
+
+
+[dependencies]
+panic-halt = { version = "0.2.0", optional = true }
+cortex-m = { version = "0.6.2", optional = true }
